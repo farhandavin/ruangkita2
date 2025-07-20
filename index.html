@@ -120,13 +120,13 @@
 
     <div id="app" class="flex flex-col md:flex-row min-h-screen opacity-0 transition-opacity duration-500 hidden">
         <!-- Sidebar -->
-        <nav id="sidebar" class="bg-brand-rose-light w-full md:w-72 p-4 md:p-6 flex md:flex-col justify-between items-center md:items-stretch shadow-lg">
+        <nav id="sidebar" class="bg-brand-rose-light w-full md:w-72 p-4 md:p-6 flex flex-col justify-between shadow-lg">
             <div>
                 <div class="text-center mb-8">
                     <h1 class="text-2xl font-bold text-brand-rose-dark">Ruang Kita</h1>
                     <p id="room-name-display" class="text-sm text-brand-text truncate font-semibold"></p>
                 </div>
-                <ul class="flex flex-row md:flex-col justify-center md:justify-start space-x-2 md:space-x-0 md:space-y-2">
+                <ul class="flex flex-col space-y-2">
                     <li><a href="#" class="nav-link active" data-page="dashboard"><span>Dashboard</span></a></li>
                     <li><a href="#" class="nav-link" data-page="gallery"><span>Galeri Kenangan</span></a></li>
                     <li><a href="#" class="nav-link" data-page="journal"><span>Jurnal Cinta</span></a></li>
@@ -134,7 +134,7 @@
                     <li><a href="#" class="nav-link" data-page="goals"><span>Impian Kita</span></a></li>
                 </ul>
             </div>
-            <div class="flex flex-col items-center">
+            <div class="flex flex-col items-center mt-6 md:mt-0">
                  <button id="back-to-home-button" class="mt-4 w-full bg-white hover:bg-gray-100 text-brand-rose-dark font-bold py-2 px-4 rounded-full transition-colors">Ganti Ruang</button>
             </div>
         </nav>
@@ -339,15 +339,15 @@
             const diffTime = now - start;
             const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24)) + 1;
 
-            document.getElementById('dashboard').innerHTML = `<h2 class="text-3xl font-bold text-brand-rose-dark mb-6 animate-fade-in">Selamat Datang, Sayang!</h2><div class="grid grid-cols-1 lg:grid-cols-3 gap-6"><div class="lg:col-span-1 bg-white p-6 rounded-2xl shadow-md flex flex-col items-center justify-center text-center animate-pop-in" style="animation-delay: 0.2s;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12 text-brand-rose animate-heartbeat mb-4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><h3 class="text-lg font-semibold text-brand-text mb-2">Kita Telah Bersama Selama</h3><p class="text-4xl font-bold text-brand-rose-dark">${diffDays}</p><p class="text-sm text-gray-500 mt-1">hari yang indah!</p></div><div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-md animate-pop-in" style="animation-delay: 0.4s;"><h3 class="text-xl font-bold text-brand-rose-dark mb-4">Kenangan Terbaru</h3><div id="dashboard-gallery-preview" class="grid grid-cols-2 sm:grid-cols-3 gap-4"></div></div></div>`;
+            document.getElementById('dashboard').innerHTML = `<h2 class="text-2xl sm:text-3xl font-bold text-brand-rose-dark mb-6 animate-fade-in">Selamat Datang, Sayang!</h2><div class="grid grid-cols-1 lg:grid-cols-3 gap-6"><div class="lg:col-span-1 bg-white p-6 rounded-2xl shadow-md flex flex-col items-center justify-center text-center animate-pop-in" style="animation-delay: 0.2s;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="w-12 h-12 text-brand-rose animate-heartbeat mb-4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg><h3 class="text-lg font-semibold text-brand-text mb-2">Kita Telah Bersama Selama</h3><p class="text-4xl font-bold text-brand-rose-dark">${diffDays}</p><p class="text-sm text-gray-500 mt-1">hari yang indah!</p></div><div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-md animate-pop-in" style="animation-delay: 0.4s;"><h3 class="text-xl font-bold text-brand-rose-dark mb-4">Kenangan Terbaru</h3><div id="dashboard-gallery-preview" class="grid grid-cols-2 sm:grid-cols-3 gap-4"></div></div></div>`;
         }
 
         function renderGalleryPage(images = []) {
             const galleryContainer = document.getElementById('gallery');
             galleryContainer.innerHTML = `
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-3xl font-bold text-brand-rose-dark">Galeri Kenangan Kita</h2>
-                    <button id="open-upload-modal-button" class="bg-brand-rose hover:bg-brand-rose-dark text-white font-bold py-2 px-4 rounded-full transition-colors">Unggah Foto</button>
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-brand-rose-dark">Galeri Kenangan Kita</h2>
+                    <button id="open-upload-modal-button" class="w-full sm:w-auto bg-brand-rose hover:bg-brand-rose-dark text-white font-bold py-2 px-4 rounded-full transition-colors">Unggah Foto</button>
                 </div>
                 <div id="gallery-grid" class="masonry-grid"></div>
             `;
@@ -384,7 +384,7 @@
 
         function renderJournalPage(entries = []) {
             const container = document.getElementById('journal');
-            container.innerHTML = `<h2 class="text-3xl font-bold text-brand-rose-dark mb-6">Jurnal Cinta Kita</h2><div class="bg-white p-6 rounded-2xl shadow-md mb-6"><h3 class="text-xl font-bold text-brand-rose-dark mb-4">Tulis Cerita Baru...</h3><textarea id="journalInput" class="w-full p-3 border border-brand-teal-DEFAULT rounded-lg focus:ring-2 focus:ring-brand-rose-dark" rows="4" placeholder="Apa yang kamu rasakan hari ini, sayang?"></textarea><button id="saveJournalButton" class="mt-4 bg-brand-rose hover:bg-brand-rose-dark text-white font-bold py-2 px-4 rounded-full transition-colors">Simpan Cerita</button></div><div id="journalEntries" class="space-y-4"></div>`;
+            container.innerHTML = `<h2 class="text-2xl sm:text-3xl font-bold text-brand-rose-dark mb-6">Jurnal Cinta Kita</h2><div class="bg-white p-6 rounded-2xl shadow-md mb-6"><h3 class="text-xl font-bold text-brand-rose-dark mb-4">Tulis Cerita Baru...</h3><textarea id="journalInput" class="w-full p-3 border border-brand-teal-DEFAULT rounded-lg focus:ring-2 focus:ring-brand-rose-dark" rows="4" placeholder="Apa yang kamu rasakan hari ini, sayang?"></textarea><button id="saveJournalButton" class="mt-4 bg-brand-rose hover:bg-brand-rose-dark text-white font-bold py-2 px-4 rounded-full transition-colors">Simpan Cerita</button></div><div id="journalEntries" class="space-y-4"></div>`;
             const entriesContainer = container.querySelector('#journalEntries');
             if (entries.length === 0) {
                 entriesContainer.innerHTML = `<p class="text-center text-gray-500">Belum ada cerita.</p>`;
@@ -408,7 +408,7 @@
         }
         function renderGoalsPage(goals = []) {
             const container = document.getElementById('goals');
-            container.innerHTML = `<h2 class="text-3xl font-bold text-brand-rose-dark mb-6">Daftar Impian Kita Bersama</h2><div class="bg-white p-6 rounded-2xl shadow-md"><div id="goalsList" class="space-y-3"></div><div class="mt-6 flex gap-4"><input type="text" id="goalInput" class="flex-grow p-3 border border-brand-teal-DEFAULT rounded-lg" placeholder="Tulis impian baru..."><button id="addGoalButton" class="bg-brand-rose hover:bg-brand-rose-dark text-white font-bold py-2 px-4 rounded-full">Tambah</button></div></div>`;
+            container.innerHTML = `<h2 class="text-2xl sm:text-3xl font-bold text-brand-rose-dark mb-6">Daftar Impian Kita Bersama</h2><div class="bg-white p-6 rounded-2xl shadow-md"><div id="goalsList" class="space-y-3"></div><div class="mt-6 flex flex-col sm:flex-row gap-4"><input type="text" id="goalInput" class="flex-grow p-3 border border-brand-teal-DEFAULT rounded-lg" placeholder="Tulis impian baru..."><button id="addGoalButton" class="bg-brand-rose hover:bg-brand-rose-dark text-white font-bold py-2 px-4 rounded-full">Tambah</button></div></div>`;
             const listContainer = container.querySelector('#goalsList');
             if (goals.length === 0) {
                 listContainer.innerHTML = `<p class="text-center text-gray-500">Ayo kita buat daftar impian pertama kita!</p>`;
@@ -432,7 +432,7 @@
         }
         function renderWishlistPage(items = []) {
             const container = document.getElementById('wishlist');
-            container.innerHTML = `<h2 class="text-3xl font-bold text-brand-rose-dark mb-6">Wishlist Belanja Kita</h2><div class="bg-white p-6 rounded-2xl shadow-md"><div id="wishlistItems" class="space-y-3"></div><div class="mt-6 flex flex-col sm:flex-row gap-4"><input type="text" id="wishlistInput" class="flex-grow p-3 border border-brand-teal-DEFAULT rounded-lg" placeholder="Nama barang..."><input type="number" id="wishlistPriceInput" class="w-full sm:w-32 p-3 border border-brand-teal-DEFAULT rounded-lg" placeholder="Harga (opsional)"><button id="addWishlistItemButton" class="bg-brand-rose hover:bg-brand-rose-dark text-white font-bold py-2 px-4 rounded-full">Tambah</button></div></div>`;
+            container.innerHTML = `<h2 class="text-2xl sm:text-3xl font-bold text-brand-rose-dark mb-6">Wishlist Belanja Kita</h2><div class="bg-white p-6 rounded-2xl shadow-md"><div id="wishlistItems" class="space-y-3"></div><div class="mt-6 flex flex-col sm:flex-row gap-4"><input type="text" id="wishlistInput" class="flex-grow p-3 border border-brand-teal-DEFAULT rounded-lg" placeholder="Nama barang..."><input type="number" id="wishlistPriceInput" class="w-full sm:w-32 p-3 border border-brand-teal-DEFAULT rounded-lg" placeholder="Harga (opsional)"><button id="addWishlistItemButton" class="bg-brand-rose hover:bg-brand-rose-dark text-white font-bold py-2 px-4 rounded-full">Tambah</button></div></div>`;
             const itemsContainer = container.querySelector('#wishlistItems');
             if (items.length === 0) {
                 itemsContainer.innerHTML = `<p class="text-center text-gray-500">Wishlist masih kosong. Ayo tambahkan sesuatu!</p>`;
@@ -594,15 +594,12 @@
                 const { error } = await supabase.from('journal_entries').update({ text: newText }).eq('id', id); 
                 setButtonLoading(button, false);
                 if (!error) {
-                    // [FIX] Panggil fungsi fetch lagi untuk memuat ulang daftar jurnal
                     fetchAndRenderJournal();
                 } else {
                     console.error("Gagal menyimpan editan jurnal:", error);
-                    // Jika gagal, kembalikan ke mode lihat
                     window.toggleJournalEdit(id);
                 }
             } else {
-                // Jika tidak ada teks, tutup saja mode edit
                 window.toggleJournalEdit(id);
             }
         };
